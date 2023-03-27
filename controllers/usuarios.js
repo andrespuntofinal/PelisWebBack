@@ -30,27 +30,31 @@ const usuariosGet =async (req = request, res = response) => {
 const usuariosGetById =async (req = request, res = response) => {
 
     const { id } = req.params;
-    const query = { estado: true };
+    //const query = { estado: true };
+    //const uuid = req.params;
+    const query = { uid: id };
     
-     
-    const [ total, usuarios ] = await Promise.all([
-        Usuario.countDocuments(query),
-        Usuario.findById( id )
+         
+    const [ usuarios ] = await Promise.all([
+       
+        Usuario.find( query )
 
 
     ])
 
+    //console.log("PPPPPP" + req.params);
+
     res.json({
        
-       total,
+       
        usuarios
     });
 }
 
 const usuariosPost = async (req, res = response) => {
 
-const { nombre, correo, rol, estado } = req.body;
-const usuario =  new Usuario ( { nombre, correo, rol, estado } );
+const { nombre, correo, rol, uid, estado } = req.body;
+const usuario =  new Usuario ( { nombre, correo, rol, uid, estado } );
 
     await usuario.save();
 

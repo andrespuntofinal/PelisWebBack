@@ -19,7 +19,13 @@ const UserSchema = Schema({
 
         type: String,
         required: true,
-        emun: ['ADMIN_ROLE', 'USER_ROLE']
+        emun: ['ADMIN_ROLE', 'USER_ROLE', 'CINE_ROLE']
+    },
+
+    uid:{
+
+        type: String,
+        required: [true, 'El uid es obligatorio']
     },
 
     estado:{
