@@ -28,8 +28,8 @@ router.put('/:id', [
 
 router.post('/', [
     check('nombre', 'El nombre es obligatorio').not().isEmpty(),
-    check('correo', 'El correo no es válido').isEmail(),
-    check('correo').custom(emailExiste),
+    check('email', 'El correo no es válido').isEmail(),
+    check('email').custom(emailExiste),
     //check('rol', 'No es un rol válido').isIn(['ADMIN_ROLE','USER_ROLE']),
     check('rol').custom( esRolValido ),
     validarCampos

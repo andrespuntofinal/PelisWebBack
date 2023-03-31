@@ -53,8 +53,8 @@ const usuariosGetById =async (req = request, res = response) => {
 
 const usuariosPost = async (req, res = response) => {
 
-const { nombre, correo, rol, uid, estado } = req.body;
-const usuario =  new Usuario ( { nombre, correo, rol, uid, estado } );
+const { nombre, email, rol, uid, estado } = req.body;
+const usuario =  new Usuario ( { nombre, email, rol, uid, estado } );
 
     await usuario.save();
 
@@ -67,7 +67,7 @@ const usuario =  new Usuario ( { nombre, correo, rol, uid, estado } );
 const usuariosPut = async (req, res = response) => {
 
     const { id } = req.params;
-    const { _id, correo, rol, ...resto } = req.body;
+    const { _id, email, rol, ...resto } = req.body;
 
     //validar contra db
 
