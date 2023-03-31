@@ -67,7 +67,7 @@ const usuario =  new Usuario ( { nombre, email, rol, uid, estado } );
 const usuariosPut = async (req, res = response) => {
 
     const { id } = req.params;
-    const { _id, email, rol, ...resto } = req.body;
+    const { _id, ...resto } = req.body;
 
     //validar contra db
 

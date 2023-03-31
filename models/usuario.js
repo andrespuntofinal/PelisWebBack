@@ -11,8 +11,8 @@ const UserSchema = Schema({
     email:{
 
         type: String,
-        required: [true, 'El correo es obligatorio'],
-        unique: true
+        required: [true, 'El correo es obligatorio']
+        
     },
 
     rol:{
